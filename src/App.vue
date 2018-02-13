@@ -2,12 +2,19 @@
   <div id="app">
     <img src="./assets/logo.png">
     <router-view/>
+    <router-link to="/first">clickToFirst</router-link>
+    <router-link to="/">clickToHome</router-link>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return {
+      pageStatus:"/first"
+    }
+  },
 }
 </script>
 
