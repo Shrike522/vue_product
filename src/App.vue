@@ -1,6 +1,6 @@
 <template>
   <el-container id="app">
-    <el-header height="40px" class="headerBox">Header</el-header>
+    <el-header height="40px" class="headerBox">Vue</el-header>
     <el-main class="mainBox">
       <router-view/>
     </el-main>
@@ -38,12 +38,18 @@ export default {
     width: 100%;
     box-sizing: border-box;
     position: relative;
-    background-color: #000000;
+    background-color: rgba(0,0,0,0.8);
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #FFFFFF;
   }
 
   .mainBox{
     width: 100%;
     height: 100%-40;
-    background-color: blue;
+    background-color: #FFFFFF;
+    padding: 0;
+    margin: 0;
   }
 </style>

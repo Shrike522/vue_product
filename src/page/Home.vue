@@ -1,7 +1,13 @@
 <template>
   <el-container id="home">
-    <el-aside width="200px">Aside</el-aside>
-    <el-main>Main</el-main>
+    <el-aside class="leftBox" width="200px">
+      <router-link to="/home/chartsList">列表</router-link>
+      <router-link to="/editor">创建</router-link>
+      <router-link to="/home/myCharts">我的</router-link>
+    </el-aside>
+    <el-main class="homeMain">
+      <router-view/>
+    </el-main>
   </el-container>
 </template>
 
@@ -21,17 +27,21 @@
   }
 </script>
 
-<style scoped>
-  #app{
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-</style>
-
-<style scoped>
+<style lang="less" scoped>
   #home{
     width: 100%;
     height: 100%;
+  }
+  .leftBox{
+    height: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 1px 0 10px rgba(0,0,0,0.2);
+  }
+  .homeMain{
+    height: 100%;
+    padding: 0;
+    margin: 0;
   }
 </style>
