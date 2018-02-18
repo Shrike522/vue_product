@@ -1,9 +1,9 @@
 <template>
   <el-container id="home">
     <el-aside class="leftBox" width="200px">
-      <router-link to="/home/chartsList">列表</router-link>
-      <router-link to="/editor">创建</router-link>
-      <router-link to="/home/myCharts">我的</router-link>
+      <router-link class="leftBoxMenu" to="/home/chartsList">列表</router-link>
+      <router-link class="leftBoxMenu" to="/editor">创建</router-link>
+      <router-link class="leftBoxMenu" to="/home/myCharts">我的</router-link>
     </el-aside>
     <el-main class="homeMain">
       <router-view/>
@@ -38,10 +38,30 @@
     position: relative;
     overflow: hidden;
     box-shadow: 1px 0 10px rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    padding: 40px 0;
   }
   .homeMain{
     height: 100%;
     padding: 0;
     margin: 0;
+  }
+  .leftBoxMenu{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    padding: 0 40px;
+    display: block;
+    font-size: 16px;
+    color: cornflowerblue;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    &:hover{
+      opacity: 0.5;
+    }
   }
 </style>
