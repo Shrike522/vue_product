@@ -6,6 +6,8 @@ import router from './router'
 import Element from 'element-ui';
 import Vuex from 'vuex';
 import 'element-ui/lib/theme-chalk/index.css'
+import charts from './components/charts/chartsIndex';
+
 
 Vue.config.productionTip = false
 
@@ -17,7 +19,9 @@ Vue.use(Vuex);
 
 //设置全局store
 const store = new Vuex.Store({
-  state:{},
+  state:{
+    charts
+  },
   getters:{},
   mutations:{},
 });
