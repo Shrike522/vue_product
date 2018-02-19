@@ -10,7 +10,39 @@
   </div>
 </template>
 
-<script></script>
+<script>
+  import echarts from 'echarts';
+  export default {
+    name:"editor",
+    computed:{
+      editorChartName(){
+        return this.$store.state.editorChart || "chartBar";
+      },
+      editorChart(){
+        return this.$store.state.charts[this.editorChartName].chart;
+      },
+      editorChartOption(){
+        return this.editorChart.option;
+      }
+    },
+    methods:{
+      readyEditorChart(option=this.editorChartOption){
+        const chartArea = echarts.init(document.getElementById("chartEditorArea"));
+        chartArea.setOption(option);
+      },
+      changeMyChart(chartName){
+        this.$store.commit("setChart",chartName);
+      },
+      removeEditorChart(){
+        const myChart = document.getElementById("chartEditorArea");
+        myChart.innerHTML = "";
+      }
+    },
+    mounted(){
+      this.readyEditorChart();
+    },
+  }
+</script>
 
 <style lang="less" scoped>
   .editorBox{
@@ -33,9 +65,10 @@
     padding: 40px 0;
   }
   .mainBox{
-    width: 100% - 200px - 250px;
+    width: calc(100% - 220px - 250px);
     height: 100%;
     float: left;
+    margin: 0 auto;
   }
   #chartEditorArea{
     width: 100%;

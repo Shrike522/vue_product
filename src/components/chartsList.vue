@@ -28,7 +28,8 @@
     },
     methods:{
       editorChart(theChart){
-        console.log(theChart);
+        this.$store.commit("setChart",theChart);
+        this.$router.push("/editor");
       }
     }
   }

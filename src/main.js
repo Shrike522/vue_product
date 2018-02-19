@@ -7,6 +7,7 @@ import Element from 'element-ui';
 import Vuex from 'vuex';
 import 'element-ui/lib/theme-chalk/index.css'
 import charts from './components/charts/chartsIndex';
+import echarts from 'echarts';
 
 
 Vue.config.productionTip = false
@@ -20,10 +21,18 @@ Vue.use(Vuex);
 //设置全局store
 const store = new Vuex.Store({
   state:{
-    charts
+    charts,
+    editorChart:"",
   },
   getters:{},
-  mutations:{},
+  mutations:{
+    setChart(chartName){
+      this.state.editorChart = chartName;
+    },
+    removeChart(){
+      this.state.editorChart = "";
+    },
+  },
 });
 
 /* eslint-disable no-new */
@@ -34,4 +43,5 @@ new Vue({
   components: { App },
   template: '<App/>',
   render: h => h(App),
-})
+});
+Vue.prototype.$echarts = echarts;
